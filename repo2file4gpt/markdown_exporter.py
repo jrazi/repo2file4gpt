@@ -1,15 +1,25 @@
 import os
+import logging
 
 
 class MarkdownExporter:
     def __init__(self, output_dir="./outputs"):
         self.output_dir = output_dir
         os.makedirs(output_dir, exist_ok=True)
+        os.makedirs("./logs", exist_ok=True)
+        logging.basicConfig(
+            filename="./logs/app.log",
+            filemode="w",
+            format="%(name)s - %(levelname)s - %(message)s",
+            level=logging.INFO,
+        )
 
     def open_file(self, filename):
         self.file = open(os.path.join(self.output_dir, filename), "w", encoding="utf-8")
+        logging.info(f"Processing {filename}")
 
     def close_file(self):
+        logging.info(f"Finished processing {self.file.name}")
         self.file.close()
 
     def write_header(self, repo_name):
@@ -33,5 +43,13 @@ class MarkdownExporter:
     def write_file_content(self, content, filetype):
         print(f"\n### {content.path}\n", file=self.file)
         print(f"```{filetype}", file=self.file)
-        print(content.decoded_content.decode(), file=self.file)
+        message = None
+        try:
+            if content.encoding == "base64":
+                print(content.decoded_content.decode(), file=self.file)
+            else:
+                message = f"Content of {content.path} could not be decoded. Encoding: {content.encoding}"
+        except Exception as e:
+            message = f"Error processing content of {content.path}: {str(e)}"
         print("```", file=self.file)
+        return message

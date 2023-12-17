@@ -4,7 +4,5 @@ setup(
     name="repo2file4gpt",
     version="0.1.0",
     packages=find_packages(),
-    install_requires=[
-        "github",
-    ],
+    install_requires=["PyGithub", "tqdm"],
 )
