@@ -4,8 +4,6 @@
 
 repo2file4gpt facilitates the ingestion of open source GitHub repositories into AI systems, unlocking a vast set of technical knowledge for machine learning.
 
-This Python package efficiently crawls through public GitHub repositories to extract a wealth of useful data - including source code in 6+ programming languages, rich technical writing in markdown documents, academic material from Jupyter notebooks, and more.
-
 By structuring and aggregating content in an indexed markdown format, repo2file4gpt prepares the harvested open source intelligence for direct integration into large language models and Q&A systems. The full hierarchy from the original GitHub tree is preserved to retain useful context.
 
 ## Installation
