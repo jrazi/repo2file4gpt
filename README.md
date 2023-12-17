@@ -1,8 +1,12 @@
 # 📁 repo2file4gpt
 
-repo2file4gpt is a Python package that scrapes GitHub repositories and exports their content into structured markdown files. The goal is to convert repository content into a machine-readable format for use in AI training data.
+## Expanding LLMs Knowledge through Public Codebases
 
-It extracts key files like code, markdown, and notebooks from public GitHub repositories. The content is exported into an aggregated markdown file per repository with the full hierarchy preserved.
+repo2file4gpt facilitates the ingestion of open source GitHub repositories into AI systems, unlocking a vast set of technical knowledge for machine learning.
+
+This Python package efficiently crawls through public GitHub repositories to extract a wealth of useful data - including source code in 6+ programming languages, rich technical writing in markdown documents, academic material from Jupyter notebooks, and more.
+
+By structuring and aggregating content in an indexed markdown format, repo2file4gpt prepares the harvested open source intelligence for direct integration into large language models and Q&A systems. The full hierarchy from the original GitHub tree is preserved to retain useful context.
 
 ## Installation
 
